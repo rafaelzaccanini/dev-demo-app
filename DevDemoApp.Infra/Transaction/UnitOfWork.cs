@@ -1,7 +1,7 @@
 ﻿using DevDemoApp.Domain.Contracts;
-using DevDemoApp.Infra.Context;
+using DevDemoApp.Infra.Data.Context;
 
-namespace DevDemoApp.Infra
+namespace DevDemoApp.Infra.Data
 {
     public sealed class UnitOfWork : IUnitOfWork
     {

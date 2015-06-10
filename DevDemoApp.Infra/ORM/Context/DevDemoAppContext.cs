@@ -1,8 +1,8 @@
 ﻿using DevDemoApp.Domain;
-using DevDemoApp.Infra.ORM.Configs;
+using DevDemoApp.Infra.Data.ORM.Configs;
 using System.Data.Entity;
 
-namespace DevDemoApp.Infra.Context
+namespace DevDemoApp.Infra.Data.Context
 {
     public class DevDemoAppContext : DbContext
     {
@@ -12,8 +12,8 @@ namespace DevDemoApp.Infra.Context
             var ensureDLLIsCopied =
                 System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;
+            //Configuration.ProxyCreationEnabled = false;
+            //Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<User> Users { get; set; }

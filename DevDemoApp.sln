@@ -3,13 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDemoApp.Infra", "DevDemoApp.Infra\DevDemoApp.Infra.csproj", "{3746ECDB-BF12-4F9D-B122-23821E1FAD5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDemoApp.Infra.Data", "DevDemoApp.Infra\DevDemoApp.Infra.Data.csproj", "{3746ECDB-BF12-4F9D-B122-23821E1FAD5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDemoApp.Api", "DevDemoApp.Api\DevDemoApp.Api.csproj", "{D2606622-0973-4165-B725-3D5002610040}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDemoApp.Domain", "DevDemoApp.Domain\DevDemoApp.Domain.csproj", "{F301C993-2F3F-4801-B2F9-6D0BEF9DDE75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDemoApp.IoC", "DevDemoApp.IoC\DevDemoApp.IoC.csproj", "{29B26547-1499-40AF-BA2B-25535104870E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevDemoApp.Infra.IoC", "DevDemoApp.IoC\DevDemoApp.Infra.IoC.csproj", "{29B26547-1499-40AF-BA2B-25535104870E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{DEAAC312-FEF8-4DB7-A728-25D3B1F0019B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{9C75013C-2DD9-480C-B976-0B13FA968AF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{7C428A2B-07A7-48E2-9C56-EB371661553F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{694069E5-27FA-49C1-8B4D-CDFA31B1144F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{9271AF2E-A125-4F57-9D1A-F579F60024F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +46,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3746ECDB-BF12-4F9D-B122-23821E1FAD5F} = {DEAAC312-FEF8-4DB7-A728-25D3B1F0019B}
+		{D2606622-0973-4165-B725-3D5002610040} = {9C75013C-2DD9-480C-B976-0B13FA968AF9}
+		{F301C993-2F3F-4801-B2F9-6D0BEF9DDE75} = {7C428A2B-07A7-48E2-9C56-EB371661553F}
+		{29B26547-1499-40AF-BA2B-25535104870E} = {DEAAC312-FEF8-4DB7-A728-25D3B1F0019B}
 	EndGlobalSection
 EndGlobal

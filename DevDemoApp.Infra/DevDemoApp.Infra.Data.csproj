@@ -7,8 +7,8 @@
     <ProjectGuid>{3746ECDB-BF12-4F9D-B122-23821E1FAD5F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DevDemoApp.Infra</RootNamespace>
-    <AssemblyName>DevDemoApp.Infra</AssemblyName>
+    <RootNamespace>DevDemoApp.Infra.Data</RootNamespace>
+    <AssemblyName>DevDemoApp.Infra.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,28 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201506082029198_InitialDataAndTables.cs" />
-    <Compile Include="Migrations\201506082029198_InitialDataAndTables.Designer.cs">
-      <DependentUpon>201506082029198_InitialDataAndTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506082031544_UpdateUserGroupActiveProperty.cs" />
-    <Compile Include="Migrations\201506082031544_UpdateUserGroupActiveProperty.Designer.cs">
-      <DependentUpon>201506082031544_UpdateUserGroupActiveProperty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506082044251_User_BornDate.cs" />
-    <Compile Include="Migrations\201506082044251_User_BornDate.Designer.cs">
-      <DependentUpon>201506082044251_User_BornDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506082047077_User_Active.cs" />
-    <Compile Include="Migrations\201506082047077_User_Active.Designer.cs">
-      <DependentUpon>201506082047077_User_Active.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ORM\Configs\UserGroupConfig.cs" />
     <Compile Include="ORM\Configs\UserConfig.cs" />
     <Compile Include="ORM\Context\DevDemoAppContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\User\RepositoryUser.cs" />
     <Compile Include="Transaction\UnitOfWork.cs" />
     <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
@@ -81,20 +64,6 @@
       <Project>{f301c993-2f3f-4801-b2f9-6d0bef9dde75}</Project>
       <Name>DevDemoApp.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506082029198_InitialDataAndTables.resx">
-      <DependentUpon>201506082029198_InitialDataAndTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506082031544_UpdateUserGroupActiveProperty.resx">
-      <DependentUpon>201506082031544_UpdateUserGroupActiveProperty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506082044251_User_BornDate.resx">
-      <DependentUpon>201506082044251_User_BornDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506082047077_User_Active.resx">
-      <DependentUpon>201506082047077_User_Active.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

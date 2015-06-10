@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 using DevDemoApp.Domain;
-using DevDemoApp.Domain.Services.Base;
+using DevDemoApp.Domain.Services;
+using System;
 
 namespace DevDemoApp.Api.Controllers
 {
@@ -21,11 +19,15 @@ namespace DevDemoApp.Api.Controllers
 
         public IEnumerable<User> Get()
         {
-            var user = _serviceUser.FindOne(u => u.CodUser == 1);
+            User uer = _serviceUser.FindByCod(3);
 
-            var users = _serviceUser.Read();
+            //User u = new User() { Name = "Teste 333", CodUserGroup = 1, Active = true, BornDate = DateTime.Now };
 
-            return users.ToArray();
+            //_serviceUser.Create(u);
+
+            var users2 = _serviceUser.Read();
+
+            return users2.ToArray();
         }
     }
 }

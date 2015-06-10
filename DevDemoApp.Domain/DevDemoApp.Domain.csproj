@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
-    <Compile Include="Contracts\User\IRepositoryUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Base\ServiceBase.cs" />
     <Compile Include="Services\Base\IServiceBase.cs" />

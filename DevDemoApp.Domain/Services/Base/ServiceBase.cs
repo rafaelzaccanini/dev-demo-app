@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace DevDemoApp.Domain.Services.Base
+namespace DevDemoApp.Domain.Services
 {
-    public abstract class ServiceBase<T> : IServiceBase<T> where T : class
+    public class ServiceBase<T> : IServiceBase<T> where T : class
     {
         #region Construtor
 
@@ -24,14 +24,9 @@ namespace DevDemoApp.Domain.Services.Base
             _repository.Create(entity);
         }
 
-        public virtual IList<T> Read()
+        public IList<T> Read()
         {
             return _repository.Read().ToList();
-        }
-
-        public T FindOne(Expression<Func<T, bool>> predicate)
-        {
-            return _repository.FindOne(predicate);
         }
 
         public void Update(T entity)

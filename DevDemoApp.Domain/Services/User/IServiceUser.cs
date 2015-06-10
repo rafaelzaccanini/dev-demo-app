@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-namespace DevDemoApp.Domain.Services.Base
+﻿
+namespace DevDemoApp.Domain.Services
 {
     public interface IServiceUser : IServiceBase<User>
     {
+        User FindByCod(int cod);
     }
 }

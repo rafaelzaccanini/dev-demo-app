@@ -1,30 +1,26 @@
-﻿using DevDemoApp.Domain;
-using DevDemoApp.Domain.Services.Base;
-using Microsoft.Practices.Unity;
+﻿using DevDemoApp.Domain.Services;
 using DevDemoApp.Domain.Contracts;
-using DevDemoApp.Infra;
-using DevDemoApp.Infra.Repositories;
+using DevDemoApp.Infra.Data;
+using Ninject;
+using DevDemoApp.Domain;
 
-namespace DevDemoApp.IoC
+namespace DevDemoApp.Infra.IoC
 {
-    /// <summary>
-    /// Class to manage the container of IoC
-    /// </summary>
     public static class IoC
     {
-        public static IUnityContainer BuildUnityContainer()
+        public static StandardKernel CreateAndRegisterKernel()
         {
-            var container = new UnityContainer();
+            var kernel = new StandardKernel();
 
-            // Domain Layer
-            container.RegisterType(typeof(IServiceBase<User>), typeof(ServiceBase<User>));
-            container.RegisterType(typeof(IServiceUser), typeof(ServiceUser));
+            kernel.Bind(typeof(IRepository<>)).To(typeof(Repository<>));
 
-            // Infra Data Layer
-            container.RegisterType(typeof(IRepository<User>), typeof(Repository<User>));
-            container.RegisterType(typeof(IRepositoryUser), typeof(RepositoryUser));
+            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
+            kernel.Bind<IServiceUser>().To<ServiceUser>();
+            
+            //kernel.Bind<RepositorioFactories>().To<RepositorioFactories>()
+            //    .InSingletonScope();
 
-            return container;
+            return kernel;
         }
     }
 }
