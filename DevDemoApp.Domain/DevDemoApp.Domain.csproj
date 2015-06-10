@@ -48,8 +48,8 @@
     <Compile Include="Services\Base\IServiceBase.cs" />
     <Compile Include="Services\User\IServiceUser.cs" />
     <Compile Include="Services\User\ServiceUser.cs" />
-    <Compile Include="User\UserGroup.cs" />
-    <Compile Include="User\User.cs" />
+    <Compile Include="Entities\User\UserGroup.cs" />
+    <Compile Include="Entities\User\User.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,9 @@ namespace DevDemoApp.Infra.Context
         public DevDemoAppContext() :
             base("DevDemoAppConnectionString")
         {
+            var ensureDLLIsCopied =
+                System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
         }

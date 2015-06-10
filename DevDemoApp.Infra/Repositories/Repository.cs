@@ -22,17 +22,17 @@ namespace DevDemoApp.Infra
             _context.Set<T>().Add(entity);
         }
 
-        public abstract IEnumerable<T> Read();
-        //{
-        //    return _context.Set<T>().AsEnumerable<T>();
-        //}
+        public virtual IEnumerable<T> Read()
+        {
+            return _context.Set<T>().AsEnumerable<T>();
+        }
 
         public IEnumerable<T> Read(int skip, int take)
         {
             return _context.Set<T>().Skip(skip).Take(take).AsEnumerable<T>();
         }
 
-        public T FindOne(Expression<Func<T, bool>> predicate)
+        public virtual T FindOne(Expression<Func<T, bool>> predicate)
         {
             return _context.Set<T>().Where(predicate).FirstOrDefault();
         }

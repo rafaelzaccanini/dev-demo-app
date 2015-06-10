@@ -1,22 +1,29 @@
 ﻿using DevDemoApp.Domain.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DevDemoApp.Domain.Services.Base
 {
     public class ServiceUser : ServiceBase<User>, IServiceUser
     {
-        private IRepositoryUser _repository;
+        private IRepositoryUser _repositoryUser;
 
-        public ServiceUser(IRepositoryUser repository)
-            : base(repository)
+        public ServiceUser(IRepositoryUser repositoryUser)
+            : base(repositoryUser)
         {
-            _repository = repository;
+            _repositoryUser = repositoryUser;
         }
 
-        public override IEnumerable<User> Read()
+        public User FindOne(Expression<Func<User, bool>> predicate)
         {
-            return _repository.Read();
+            return _repositoryUser.FindOne(predicate);
+        }
+
+        public override IList<User> Read()
+        {
+            return _repositoryUser.Read().ToList();
         }
 
     }

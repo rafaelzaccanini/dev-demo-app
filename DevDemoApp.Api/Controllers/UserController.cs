@@ -21,9 +21,11 @@ namespace DevDemoApp.Api.Controllers
 
         public IEnumerable<User> Get()
         {
-            var users = _serviceUser.Read().ToArray();
-            
-            return users;
+            var user = _serviceUser.FindOne(u => u.CodUser == 1);
+
+            var users = _serviceUser.Read();
+
+            return users.ToArray();
         }
     }
 }

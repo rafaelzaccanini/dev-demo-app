@@ -1,5 +1,8 @@
 ﻿using DevDemoApp.Domain.Contracts;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace DevDemoApp.Domain.Services.Base
 {
@@ -21,10 +24,15 @@ namespace DevDemoApp.Domain.Services.Base
             _repository.Create(entity);
         }
 
-        public abstract IEnumerable<T> Read();
-        //{
-        //    return _repository.Read();
-        //}
+        public virtual IList<T> Read()
+        {
+            return _repository.Read().ToList();
+        }
+
+        public T FindOne(Expression<Func<T, bool>> predicate)
+        {
+            return _repository.FindOne(predicate);
+        }
 
         public void Update(T entity)
         {

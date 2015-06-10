@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace DevDemoApp.Domain.Services.Base
 {
@@ -6,7 +8,9 @@ namespace DevDemoApp.Domain.Services.Base
     {
         void Create(T entity);
 
-        IEnumerable<T> Read();
+        IList<T> Read();
+
+        T FindOne(Expression<Func<T, bool>> predicate);
 
         void Update(T entity);
 
