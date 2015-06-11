@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace DevDemoApp.Domain.Services
 {
@@ -8,7 +7,7 @@ namespace DevDemoApp.Domain.Services
     {
         void Create(T entity);
 
-        IList<T> Read();
+        IQueryable<T> Read();
 
         void Update(T entity);
 

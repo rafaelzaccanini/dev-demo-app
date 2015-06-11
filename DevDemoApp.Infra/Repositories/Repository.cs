@@ -7,16 +7,16 @@ using System.Linq.Expressions;
 
 namespace DevDemoApp.Infra.Data
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository : IRepository
     {
-        private DevDemoAppContext _context;
+        protected DevDemoAppContext _context;
 
         public Repository(DevDemoAppContext context)
         {
             _context = context;
         }
 
-        public void Create(T entity)
+        public void Create<T>(T entity) where T : class
         {
             try
             {
@@ -30,7 +30,7 @@ namespace DevDemoApp.Infra.Data
             }
         }
 
-        public IQueryable<T> Read()
+        public IQueryable<T> Read<T>() where T : class
         {
             try
             {
@@ -42,19 +42,7 @@ namespace DevDemoApp.Infra.Data
             }
         }
 
-        public IQueryable<T> Read(Expression<Func<T, bool>> predicate)
-        {
-            try
-            {
-                return _context.Set<T>().Where(predicate);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(Error(e));
-            }
-        }
-
-        public void Update(T entity)
+        public void Update<T>(T entity) where T : class
         {
             try
             {
@@ -68,7 +56,7 @@ namespace DevDemoApp.Infra.Data
             }
         }
 
-        public void Delete(T entity)
+        public void Delete<T>(T entity) where T : class
         {
             try
             {

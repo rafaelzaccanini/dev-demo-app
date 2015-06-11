@@ -42,13 +42,13 @@
   <ItemGroup>
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="Entities\Account\UserGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Base\ServiceBase.cs" />
     <Compile Include="Services\Base\IServiceBase.cs" />
-    <Compile Include="Services\User\IServiceUser.cs" />
-    <Compile Include="Services\User\ServiceUser.cs" />
-    <Compile Include="Entities\User\UserGroup.cs" />
-    <Compile Include="Entities\User\User.cs" />
+    <Compile Include="Services\Account\IServiceUser.cs" />
+    <Compile Include="Services\Account\ServiceUser.cs" />
+    <Compile Include="Entities\Account\User.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,14 +19,12 @@ namespace DevDemoApp.Api.Controllers
 
         public IEnumerable<User> Get()
         {
-            User uer = _serviceUser.FindByCod(3);
+            User uer = _serviceUser.Get(3);
 
-            //User u = new User() { Name = "Teste 333", CodUserGroup = 1, Active = true, BornDate = DateTime.Now };
-
+            //User u = new User() { Name = "Mirandesco", CodUserGroup = 1, Active = true, BornDate = DateTime.Now };
             //_serviceUser.Create(u);
 
             var users2 = _serviceUser.Read();
-
             return users2.ToArray();
         }
     }

@@ -6,6 +6,11 @@ namespace DevDemoApp.Infra.Data.Context
 {
     public class DevDemoAppContext : DbContext
     {
+        static DevDemoAppContext()
+        {
+            Database.SetInitializer<DevDemoAppContext>(null);
+        }
+
         public DevDemoAppContext() :
             base("DevDemoAppConnectionString")
         {

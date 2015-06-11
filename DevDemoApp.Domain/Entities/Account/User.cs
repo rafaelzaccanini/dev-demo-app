@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace DevDemoApp.Domain
 {
     public class User

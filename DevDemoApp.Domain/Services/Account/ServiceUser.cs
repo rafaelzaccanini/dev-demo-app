@@ -5,20 +5,17 @@ namespace DevDemoApp.Domain.Services
 {
     public class ServiceUser : ServiceBase<User>, IServiceUser
     {
-        private IRepository<User> _repository;
+        private IRepository _repository;
 
-        public ServiceUser(IRepository<User> repository)
+        public ServiceUser(IRepository repository)
             : base(repository)
         {
             _repository = repository;
         }
 
-        public User FindByCod(int cod)
+        public User Get(int cod)
         {
-            var user = _repository.Read().FirstOrDefault(u => u.CodUser == cod);
-
-            return user;
+            return _repository.Read<User>().FirstOrDefault(u => u.CodUser == cod);
         }
-
     }
 }

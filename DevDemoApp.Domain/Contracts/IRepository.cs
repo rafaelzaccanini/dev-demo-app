@@ -1,19 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq;
 
 namespace DevDemoApp.Domain.Contracts
 {
-    public interface IRepository<T> : IDisposable where T : class
+    public interface IRepository
     {
-        void Create(T entity);
+        void Create<T>(T entity) where T : class;
 
-        IQueryable<T> Read();
+        IQueryable<T> Read<T>() where T : class;
 
-        IQueryable<T> Read(Expression<Func<T, bool>> predicate);
+        void Update<T>(T entity) where T : class;
 
-        void Update(T entity);
-
-        void Delete(T entity);
+        void Delete<T>(T entity) where T : class;
     }
 }
