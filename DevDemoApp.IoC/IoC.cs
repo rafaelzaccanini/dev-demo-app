@@ -2,6 +2,7 @@
 using DevDemoApp.Domain.Contracts;
 using DevDemoApp.Infra.Data;
 using Ninject;
+using DevDemoApp.Application;
 
 namespace DevDemoApp.Infra.IoC
 {
@@ -11,14 +12,16 @@ namespace DevDemoApp.Infra.IoC
         {
             var kernel = new StandardKernel();
 
-            kernel.Bind<IRepository>().To<Repository>();
-            kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
-            
+            // Repository
+            kernel.Bind(typeof(IRepository<>)).To(typeof(Repository<>));
+
+            // Domain Services
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
             kernel.Bind<IServiceUser>().To<ServiceUser>();
-            
-            //kernel.Bind<RepositorioFactories>().To<RepositorioFactories>()
-            //    .InSingletonScope();
+            kernel.Bind<IServiceUserGroup>().To<ServiceUserGroup>();
+
+            // Application Services
+            kernel.Bind<IApplicationServiceAccount>().To<ApplicationServiceAccount>();
 
             return kernel;
         }

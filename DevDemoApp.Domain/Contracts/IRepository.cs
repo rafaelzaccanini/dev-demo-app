@@ -2,14 +2,14 @@
 
 namespace DevDemoApp.Domain.Contracts
 {
-    public interface IRepository
+    public interface IRepository<T> where T : class
     {
-        void Create<T>(T entity) where T : class;
+        void Create(T entity);
 
-        IQueryable<T> Read<T>() where T : class;
+        IQueryable<T> Read();
 
-        void Update<T>(T entity) where T : class;
+        void Update(T entity);
 
-        void Delete<T>(T entity) where T : class;
+        void Delete(T entity);
     }
 }

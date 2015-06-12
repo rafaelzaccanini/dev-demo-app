@@ -1,5 +1,4 @@
 ﻿using DevDemoApp.Api.Help.Ninject;
-using Ninject;
 using System.Web.Http;
 using DevDemoApp.Infra.IoC;
 

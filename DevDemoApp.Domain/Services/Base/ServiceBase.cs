@@ -1,14 +1,13 @@
 ﻿using DevDemoApp.Domain.Contracts;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace DevDemoApp.Domain.Services
 {
     public class ServiceBase<T> : IServiceBase<T> where T : class
     {
-        private readonly IRepository _repository;
+        private readonly IRepository<T> _repository;
 
-        public ServiceBase(IRepository repository)
+        public ServiceBase(IRepository<T> repository)
         {
             _repository = repository;
         }
@@ -21,7 +20,7 @@ namespace DevDemoApp.Domain.Services
 
         public IQueryable<T> Read()
         {
-            return _repository.Read<T>();
+            return _repository.Read();
         }
 
         public void Update(T entity)

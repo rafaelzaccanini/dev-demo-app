@@ -3,24 +3,29 @@ using DevDemoApp.Infra.Data.Context;
 using System;
 using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace DevDemoApp.Infra.Data
 {
-    public class Repository : IRepository
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected DevDemoAppContext _context;
+        protected DbSet<T> _dbSet;
 
         public Repository(DevDemoAppContext context)
         {
+            if (context == null)
+                throw new ArgumentNullException("DbContext is null!");
+
             _context = context;
+            _dbSet = _context.Set<T>();
         }
 
-        public void Create<T>(T entity) where T : class
+
+        public void Create(T entity)
         {
             try
             {
-                _context.Set<T>().Add(entity);
+                _dbSet.Add(entity);
                 Commit();
             }
             catch (Exception e)
@@ -30,11 +35,11 @@ namespace DevDemoApp.Infra.Data
             }
         }
 
-        public IQueryable<T> Read<T>() where T : class
+        public IQueryable<T> Read()
         {
             try
             {
-                return _context.Set<T>();
+                return _dbSet;
             }
             catch (Exception e)
             {
@@ -42,7 +47,7 @@ namespace DevDemoApp.Infra.Data
             }
         }
 
-        public void Update<T>(T entity) where T : class
+        public void Update(T entity)
         {
             try
             {
@@ -56,11 +61,11 @@ namespace DevDemoApp.Infra.Data
             }
         }
 
-        public void Delete<T>(T entity) where T : class
+        public void Delete(T entity)
         {
             try
             {
-                _context.Set<T>().Remove(entity);
+                _dbSet.Remove(entity);
                 Commit();
             }
             catch (Exception e)
@@ -69,16 +74,14 @@ namespace DevDemoApp.Infra.Data
             }
         }
 
-        private void Commit()
-        {
-            _context.SaveChanges();
-        }
-
         public void Dispose()
         {
             _context.Dispose();
         }
-
+        private void Commit()
+        {
+            _context.SaveChanges();
+        }
         private string Error(Exception e)
         {
             var erros = _context.GetValidationErrors().SelectMany(a => a.ValidationErrors.Select(b => b.ErrorMessage)).ToList();

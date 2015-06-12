@@ -41,9 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IRepository.cs" />
-    <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Entities\Account\UserGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Account\IServiceUserGroup.cs" />
+    <Compile Include="Services\Account\ServiceUserGroup.cs" />
     <Compile Include="Services\Base\ServiceBase.cs" />
     <Compile Include="Services\Base\IServiceBase.cs" />
     <Compile Include="Services\Account\IServiceUser.cs" />
